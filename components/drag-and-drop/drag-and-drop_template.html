@@ -1,6 +1,9 @@
-<div class="" id="drag-and-drop">
-    Drag And Drop files
-</div>
-<div class="" ng-if="$ctrl.imageSource">
-     <img style="height:40px;width:40px" src={{$ctrl.imageSource}} class="thumb">
+<div class="container">
+    <div ng-class="$ctrl.border==='dashed'?'dashedBorder':'solidBorder'" class="" id="drag-and-drop">
+        Drag And Drop Images
+    </div>
+    <div class="image-div" ng-if="$ctrl.imageSource">
+        <p>File Name : {{$ctrl.file.name}}</p>
+         <img  src={{$ctrl.imageSource}} class="image">
+    </div>
 </div>

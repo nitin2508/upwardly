@@ -11,6 +11,7 @@
 
     function activate() {
       vm.imageSource = null;
+      vm.border = 'dashed';
       var dragAndDropDiv = document.getElementById('drag-and-drop');
       var wrappedDragAndDropDiv = angular.element(dragAndDropDiv)[0];
       wrappedDragAndDropDiv.addEventListener('drop', vm.onDrop)
@@ -20,17 +21,24 @@
     }
 
     vm.dragEnter = function(event) {
+         vm.border = 'solid';
+         $scope.$apply();
       event.preventDefault();
     }
     vm.dragLeave = function(event) {
+        vm.border = 'dashed';
+        $scope.$apply();
       event.preventDefault();
     }
 
     vm.dragOver = function() {
+        $scope.$apply();
       event.preventDefault();
     }
 
     vm.onDrop = function(event) {
+        vm.border = 'dashed';
+        $scope.$apply();
       if (event.preventDefault) {
         event.preventDefault();
       }
@@ -54,6 +62,7 @@
           var reader = new FileReader();
           reader.onload = function(e) {
             vm.imageSource = e.target.result;
+            vm.file = file;
             $scope.$apply();
           }
           reader.readAsDataURL(file);
