@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html ng-app="Upwardly">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="./index.css">
-        <title></title>
-    </head>
-    <body>
-        <drag-and-drop></drag-and-drop>
-     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="./module.js"></script>
-    <script src="./components/drag-and-drop/drag-and-drop_component.js"></script>
-    </body>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="./bower_components/semantic/dist/semantic.min.css">
+  <link rel="stylesheet" href="./index.css">
+  <title></title>
+</head>
+
+<body>
+  <div class="ui menu header">
+    <div class="header item">
+      <p style=" font-size: 21px;margin-left: 10px;">Upwardly</p>
+    </div>
+  </div>
+  <drag-and-drop></drag-and-drop>
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="./module.js"></script>
+  <script src="./components/drag-and-drop/drag-and-drop_component.js"></script>
+</body>
+
 </html>
