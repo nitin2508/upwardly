@@ -1,9 +1,13 @@
 <div class="container">
+    <div class="ui fluid action input linkInput">
+  <input ng-model="link" type="text" placeholder="Enter Link">
+  <div  ng-click="$ctrl.showImage(link)" class="ui button">Insert Link</div>
+</div>
     <div ng-class="$ctrl.border==='dashed'?'dashedBorder':'solidBorder'" class="" id="drag-and-drop">
         Drag And Drop Images
     </div>
     <div class="image-div" ng-if="$ctrl.imageSource">
-        <p>File Name : {{$ctrl.file.name}}</p>
+        <p ng-if="$ctrl.file">File Name : {{$ctrl.file.name}}</p>
          <img  src={{$ctrl.imageSource}} class="image">
     </div>
 </div>

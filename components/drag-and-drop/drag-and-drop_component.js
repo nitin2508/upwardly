@@ -10,10 +10,12 @@
     vm.$onInit = activate;
 
     function activate() {
-      vm.imageSource = null;
-      vm.border = 'dashed';
       var dragAndDropDiv = document.getElementById('drag-and-drop');
       var wrappedDragAndDropDiv = angular.element(dragAndDropDiv)[0];
+
+      vm.imageSource = null;
+      vm.border = 'dashed';
+      vm.showImage = showImage;
       wrappedDragAndDropDiv.addEventListener('drop', vm.onDrop)
       wrappedDragAndDropDiv.addEventListener('dragenter', vm.dragEnter);
       wrappedDragAndDropDiv.addEventListener('dragleave', vm.dragLeave);
@@ -22,13 +24,13 @@
 
     vm.dragEnter = function(event) {
          vm.border = 'solid';
+        event.preventDefault();
          $scope.$apply();
-      event.preventDefault();
     }
     vm.dragLeave = function(event) {
         vm.border = 'dashed';
+        event.preventDefault();
         $scope.$apply();
-      event.preventDefault();
     }
 
     vm.dragOver = function() {
@@ -51,8 +53,6 @@
         return;
       }
 
-
-
       generateImageSource(fileArray[0]);
     }
 
@@ -71,6 +71,18 @@
       }
 
     }
+    function showImage(imageLink){
+      // if(!checkURL(imageLink)){
+      //   alert('Enter link in not image');
+      //   return;
+      // }
+      vm.file = null;
+      vm.imageSource = imageLink;
+    }
+
+//     function checkURL(url) {
+//     return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+// }
 
 
 
